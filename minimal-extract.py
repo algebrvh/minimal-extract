@@ -1,6 +1,12 @@
 from unicodedata import normalize
-from py_fumen_py import decode as pydecode, encode as pyencode, Field, Page
 import os
+
+try:
+    from py_fumen_py import decode as pydecode, encode as pyencode, Field, Page
+except ImportError:
+    import pip
+    pip.main(["install", "py_fumen_py"])
+    from py_fumen_py import decode as pydecode, encode as pyencode, Field, Page
 
 #took me like 45 minutes to code, 1:30 to debug
 #overkill decode and encode stuff
